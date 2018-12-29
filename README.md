@@ -29,7 +29,7 @@ _+ project_id : id của project
 - Tạo menu Project để hiển thị danh sách project mặc định hiển thị dạng kanban với trường name, start date, end date.  
 - Tạo các view cơ bản (tree, form) cho 2 model trên. Hiển thị toàn bộ các trường có ở 2 model này.  
 - Riêng form view của exam.project yêu cầu hiển thị danh sách các task của project ở dạng kanban với trường name  
-- Tạo dữ liệu demo với  
+- Tạo dữ liệu demo cho User, Project, Task. Mỗi model khoảng 3 đến 5 bản ghi demo (dữ liệu demo tự chọn)
 
 Chú ý: user sử dụng bảng res_users của hệ thống. Hãy tự depend tới module cần thiết để có thể sử dụng được model res_users.  
 
