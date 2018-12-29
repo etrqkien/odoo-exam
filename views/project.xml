@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <record id="view_kaban_project" model="ir.ui.view">
+            <field name="name">view_kaban_project</field>
+            <field name="model">exam.project</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <div class="oe_kanban_details">
+                                    <field name="start_date"/>
+                                    <field name="due_date"/>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+        Action
+        <record id="exam_project_act" model="ir.actions.act_window">
+            <field name="name">My Project</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">exam.project</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Tạo project đầu tiên của bạn!
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>

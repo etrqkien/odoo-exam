@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!--<record id="" model="ir.ui.view">-->
+            <!--<field name="name"></field>-->
+            <!--<field name="model"></field>-->
+            <!--<field name="arch" type="xml">-->
+                <!--<tree string="">-->
+                    <!--<field name="name"/>-->
+                <!--</tree>-->
+            <!--</field>-->
+        <!--</record>-->
+        <!-- Action -->
+        <record id="exam_task_act" model="ir.actions.act_window">
+            <field name="name">My Task</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">exam.task</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Tạo task đầu tiên của bạn!
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>
