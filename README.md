@@ -10,7 +10,8 @@ Viết lệnh với odoo-bin sử dụng file config trên để update module p
 Muốn chạy odoo ở cổng 69 thì phải làm thế nào. Hãy viết cả 2 cách: chỉ định cổng ở dòng lệnh với odoo-bin và chỉ định cổng trong file config.  
 
 Trả lời:  
-
+C:\Code\myaddon\venv\Scripts\python.exe -c C:\Code\myaddon\odoo-exam.conf -d test-project -u odoo-exam --xmlrpc-port 69
+http_port = 69
 
 ### Câu 2:  
 Tạo module project-base : (Viết lệnh tạo module bằng scaffold)  
@@ -34,8 +35,9 @@ _+ project_id : id của project
 Chú ý: user sử dụng bảng res_users của hệ thống. Hãy tự depend tới module cần thiết để có thể sử dụng được model res_users.  
 
 Trả lời:  
-( ... lệnh tạo module bằng scaffold ... )  
-
+( ... lệnh tạo module bằng scaffold ... ) 
+ C:\Code\myaddon\venv\Scripts\python.exe C:\Code\myaddon\odoo-bin scaffold exam-base 
+ C:\Code\myaddon\odoo-exam
 ### Câu 3:  
 Tạo module project-extern chứa các mở rộng:  
 - exam.project: thêm trường status kiểu selection : init, finish, fail . Mặc định init . Danh sách project mặc định filter chỉ hiện các project init (thêm filter init) . Hiển thị trường này ra form view của project.  

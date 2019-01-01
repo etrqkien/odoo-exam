@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- Inherit Form View to Modify it -->
+        <record id="exam_project_form_inherited" model="ir.ui.view">
+            <field name="name">Task-extend</field>
+            <field name="model">exam.task</field>
+            <field name="inherit_id" ref="project-base.exam_task_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='project_id']" position="after">
+                    <field name="status"/>
+                </xpath>
+                <xpath expr="//field[@name='due_date']" position="after">
+                    <field name="working_status"/>
+                </xpath>
+            </field>
+        </record>
+
+    </data>
+</odoo>

@@ -14,10 +14,7 @@
         'views/menu.xml',
     ],
     'demo': [
-        # 'demo/demo.xml',
-
-        # 'views/task.xml'
-
+        'demo/demo.xml',
     ],
     'css': [],
     'qweb': [],

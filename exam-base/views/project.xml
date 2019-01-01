@@ -6,12 +6,15 @@
             <field name="model">exam.project</field>
             <field name="arch" type="xml">
                 <kanban>
-                    <field name="name"/>
                     <templates>
                         <t t-name="kanban-box">
                             <div class="oe_kanban_global_click">
                                 <div class="oe_kanban_details">
-                                    <field name="start_date"/>
+                                    <field name="name"/>
+                                    <strong>
+                                        <field name="start_date"/>
+                                    </strong>
+                                    <br/>
                                     <field name="due_date"/>
                                 </div>
                             </div>
@@ -20,7 +23,16 @@
                 </kanban>
             </field>
         </record>
-        Action
+        <record id="view_kanban_project_form" model="ir.ui.view">
+            <field name="name">view_kanban_project_form</field>
+            <field name="model">exam.project</field>
+            <field name="arch" type="xml">
+                <form>
+                    <field name="name"/>
+                </form>
+            </field>
+        </record>
+        <!-- Action -->
         <record id="exam_project_act" model="ir.actions.act_window">
             <field name="name">My Project</field>
             <field name="type">ir.actions.act_window</field>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!-- Tree view for "model" -->
+        <record id="view_task_tree" model="ir.ui.view">
+            <field name="name">My Task</field>
+            <field name="model">exam.task</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="user_id"/>
+                    <field name="start_date"/>
+                    <field name="due_date"/>
+                    <field name="project_id"/>
+                </tree>
+            </field>
+        </record>
+        <!-- Form view for "model" -->
+        <record id="view_task_form" model="ir.ui.view">
+            <field name="name">My Form Task</field>
+            <field name="model">exam.task</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group name="goup-left">
+                                <field name="name"/>
+                                <field name="user_id" string="name"/>
+                            </group>
+                            <group name="group-right">
+                                <field name="start_date" string="thoi gian bat dau"/>
+                                <field name="due_date" string="thoi gian thuc hien" />
+                                <field name="project_id"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- Action -->
+        <record id="exam_task_act" model="ir.actions.act_window">
+            <field name="name">My Task</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">exam.task</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Tạo task đầu tiên của bạn!
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>

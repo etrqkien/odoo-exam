@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data>
+        <!-- Demo data for project-->
+        <record id="id_project_1" model="exam.project">
+            <field name="name">Du an 1</field>
+            <field name="start_date">2018/12/12</field>
+            <field name="due_date">2018/12/12</field>
+        </record>
+        <record id="id_project_2" model="exam.project">
+            <field name="name">Du an 2</field>
+            <field name="start_date">2018-12-12</field>
+            <field name="due_date">2018-12-12</field>
+        </record>
+        <record id="id_project_3" model="exam.project">
+            <field name="name">Du an 3</field>
+            <field name="start_date">2018-12-12</field>
+            <field name="due_date">2018-12-12</field>
+        </record>
+        <record id="id_project_4" model="exam.project">
+            <field name="name">Du an 4</field>
+            <field name="start_date">2018-12-12</field>
+            <field name="due_date">2018-12-12</field>
+        </record>
+        <record id="id_project_5" model="exam.project">
+            <field name="name">Du an 5</field>
+            <field name="start_date" eval="2018-12-12"/>
+            <field name="due_date">2018-12-12</field>
+        </record>
+        <!-- Demo data for task-->
+        <record id="id_task_1" model="exam.task">
+            <field name="name">Task 1</field>
+            <!-- <field name="user_id" eval="[(4,ref('res.users'))]" string="nguoi thuc hien"/> -->
+            <field name="start_date">2017-12-03</field>
+            <field name="due_date">2017-12-04</field>
+        </record>
+        <!-- <record id="id_task_2" model="exam.task">
+            <field name="name">Task 2</field>
+            <field name="user_id" eval="[(4,ref('res.users'))]" string="nguoi thuc hien"/>
+            <field name="start_date">2017-12-03</field>
+            <field name="due_date">2017-12-04</field>
+        </record>
+        <record id="id_task_3" model="exam.task">
+            <field name="name">Task 3</field>
+            <field name="user_id" eval="[(4,ref('res.users'))]" string="nguoi thuc hien"/>
+            <field name="start_date">2017-12-03</field>
+            <field name="due_date">2017-12-04</field>
+        </record>
+        <record id="id_task_4" model="exam.task">
+            <field name="name">Task 4</field>
+            <field name="user_id" eval="[(4,ref('res.users'))]" string="nguoi thuc hien"/>
+            <field name="start_date">2017-12-03</field>
+            <field name="due_date">2017-12-04</field>
+        </record>
+        <record id="id_task_5" model="exam.task">
+            <field name="name">Task 5</field>
+            <field name="user_id" eval="[(4,ref('res.users'))]" string="nguoi thuc hien"/>
+            <field name="start_date">2017-12-03</field>
+            <field name="due_date">2017-12-04</field> -->
+        <!-- </record> -->
+    </data>
+</odoo>

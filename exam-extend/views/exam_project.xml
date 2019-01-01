@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Inherit Form View to Modify it -->
+        <record id="exam_project_form_inherited" model="ir.ui.view">
+            <field name="name">Project-extern-form</field>
+            <field name="model">exam.project</field>
+            <field name="inherit_id" ref="project-base.exam_project_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='manager_user_id']" position="after">
+                    <field name="status"/>
+                </xpath>
+                <xpath expr="//field[@name='due_date']" position="after">
+                    <field name="working_status"/>
+                </xpath>
+            </field>
+        </record>
+
+
+        <record id="exam_project_tree_inherited" model="ir.ui.view">
+            <field name="name">Project-extern-tree</field>
+            <field name="model">exam.project</field>
+            <field name="inherit_id" ref="project-base.exam_project_tree"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='manager_user_id']" position="after">
+                    <field name="status"/>
+                </xpath>
+                <xpath expr="//field[@name='due_date']" position="after">
+                    <field name="working_status"/>
+                </xpath>
+            </field>
+        </record>
+
+
+        <record id="exam_project_search" model="ir.ui.view">
+            <field name="name">Filter</field>
+            <field name="model">exam.project</field>
+            <field name="arch" type="xml">
+                <search>
+                    <filter string="init" name="init" domain="[('status','=','init')]"/>
+                </search>
+            </field>
+        </record>
+
+    </data>
+</odoo>
