@@ -1,15 +1,19 @@
-# odoo-exam
+﻿# odoo-exam
 ## Bài test số 1  
 
 Tạo branch với tên branch là tên của mình. Thực hiện viết câu trả lời trực tiếp vào file này hoặc viết code khi có yêu cầu.  
 
 ### Câu 1:  
 Tạo file odoo-exam.conf chứa các config tối thiểu để có thể chạy được odoo  
-Viết lệnh với odoo-bin sử dụng file config trên để chạy odoo  
-Viết lệnh với odoo-bin sử dụng file config trên để update module project, tên database sử dụng là test-project  
-Muốn chạy odoo ở cổng 69 thì phải làm thế nào. Hãy viết cả 2 cách: chỉ định cổng ở dòng lệnh với odoo-bin và chỉ định cổng trong file config.  
+1. Viết lệnh với odoo-bin sử dụng file config trên để chạy odoo  
+2. Viết lệnh với odoo-bin sử dụng file config trên để update module project, tên database sử dụng là test-project  
+3. Muốn chạy odoo ở cổng 69 thì phải làm thế nào. Hãy viết cả 2 cách: chỉ định cổng ở dòng lệnh với odoo-bin và chỉ định cổng trong file config.  
 
-Trả lời:  
+Trả lời: 
+1. python -c D:/Github/odoo-exam/odoo-exam.conf
+2. python -c D:/Github/odoo-exam/odoo-exam.conf -d test-project -u odoo-exam
+3. python -c D:/Github/odoo-exam/odoo-exam.conf -d test-project -u odoo-exam --xmlrpc-port 69
+
 
 
 ### Câu 2:  
@@ -35,6 +39,7 @@ Chú ý: user sử dụng bảng res_users của hệ thống. Hãy tự depend 
 
 Trả lời:  
 ( ... lệnh tạo module bằng scaffold ... )  
+python C:/Code/odoo/odoo-bin scaffold project-base D:/Github/odoo-exam
 
 ### Câu 3:  
 Tạo module project-extern chứa các mở rộng:  

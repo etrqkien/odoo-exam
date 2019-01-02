@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+    <!--
+    <record model="ir.ui.view" id="project-extern.list">
+      <field name="name">project-extern list</field>
+      <field name="model">project-extern.project-extern</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+    -->
+
+    <!-- actions opening views on models -->
+    <!--
+    <record model="ir.actions.act_window" id="project-extern.action_window">
+      <field name="name">project-extern window</field>
+      <field name="res_model">project-extern.project-extern</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    -->
+
+    <!-- server action to the one above -->
+    <!--
+    <record model="ir.actions.server" id="project-extern.action_server">
+      <field name="name">project-extern server</field>
+      <field name="model_id" ref="model_project-extern_project-extern"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": self._name,
+        }
+      </field>
+    </record>
+    -->
+
+    <!-- Top menu item -->
+    <!--
+    <menuitem name="project-extern" id="project-extern.menu_root"/>
+    -->
+    <!-- menu categories -->
+    <!--
+    <menuitem name="Menu 1" id="project-extern.menu_1" parent="project-extern.menu_root"/>
+    <menuitem name="Menu 2" id="project-extern.menu_2" parent="project-extern.menu_root"/>
+    -->
+    <!-- actions -->
+    <!--
+    <menuitem name="List" id="project-extern.menu_1_list" parent="project-extern.menu_1"
+              action="project-extern.action_window"/>
+    <menuitem name="Server to list" id="project-extern" parent="project-extern.menu_2"
+              action="project-extern.action_server"/>
+    -->
+  </data>
+</odoo>
