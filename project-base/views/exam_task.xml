@@ -30,7 +30,7 @@
             <field name="arch" type="xml">
                 <form string="Task">
                     <sheet>
-                        <group>
+                        <group id="group">
                             <group>
                                 <field name="name"/>
                                 <field name="user_id"/>

@@ -11,11 +11,117 @@
 
                 <xpath expr="//field[@name='project_id']" position="after">
                     <field name="status"/>
+
+                </xpath>
+                <xpath expr="//field[@name='due_date']" position="after">
+                    <field name="working_status"/>
+                    <field name="priority"/>
+
+                </xpath>
+                <xpath expr="//group[@id='group']" position="inside">
+                    <notebook>
+                        <page string="Tags">
+                            <field name="tag_ids"/>
+                        </page>
+                    </notebook>
+
+                </xpath>
+            </field>
+        </record>
+
+        <record id="exam_task_tree_inherited" model="ir.ui.view">
+            <field name="name">Task-extern</field>
+            <field name="model">exam.task</field>
+            <field name="inherit_id" ref="project-base.exam_task_tree"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='project_id']" position="after">
+                    <field name="status"/>
                 </xpath>
                 <xpath expr="//field[@name='due_date']" position="after">
                     <field name="working_status"/>
                 </xpath>
             </field>
+        </record>
+
+        <record id="kanban_exam_task" model="ir.ui.view">
+            <field name="name">exam_task</field>
+            <field name="model">exam.task</field>
+            <field name="arch" type="xml">
+                <kanban default_group_by="project_id"
+                        class="o_kanban_medium_column">
+                    <field name="name"/>
+                    <field name="user_id"/>
+                    <field name="tag_ids"/>
+                    <field name="priority"/>
+                    <field name="start_date"/>
+                    <field name="due_date"/>
+                    <field name="status"/>
+                    <field name="working_status"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click oe_kanban_content">
+
+                                <!-- Content elements and fields go here... -->
+                                <div>
+                                    <field name="tag_ids"/>
+                                </div>
+
+                                <div>
+                                    <strong>
+                                        <a type="open">
+                                            <field name="name"/>
+                                        </a>
+                                    </strong>
+                                </div>
+
+                                <ul>
+                                    <li>
+                                        <field name="user_id"/>
+                                    </li>
+                                    <li t-att-class="red_or_black">
+                                        <field name="status"/>
+                                    </li>
+                                    <li t-att-class="red_or_black">
+                                        <field name="working_status"/>
+                                    </li>
+
+                                </ul>
+
+
+                                <div class="oe_kanban_footer">
+
+                                    <div>
+                                        <!-- Left hand footer... -->
+                                        <field name="priority" widget="priority"/>
+
+                                    </div>
+
+                                    <div>
+                                        <!-- Right hand footer... -->
+
+                                        <img t-att-title="record.user_id.value"
+                                             t-att-src="kanban_image(
+                                                                'res.users', 'image_small',
+                                                                record.user_id.raw_value)"
+                                             width="24" height="24"
+                                             class="oe_kanban_avatar pull-right"/>
+
+                                    </div>
+                                </div>
+
+                            </div><!-- oe_kanban_content -->
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="project-base.exam_task_act" model="ir.actions.act_window">
+            <field name="name">Task</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">exam.task</field>
+            <field name="view_mode">kanban,tree,form</field>
         </record>
 
     </data>
