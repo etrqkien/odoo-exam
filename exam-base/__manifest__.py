@@ -19,10 +19,12 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base', 'account', 'sale', 'purchase'],
 
     # always loaded
     'data': [
+        'security/group.xml',
+        'security/ir.model.access.csv',
         'views/task.xml',
         'views/project.xml',
         'views/menu.xml',
@@ -31,5 +33,5 @@
     'demo': [
         'demo/demo.xml',
     ],
-    'application':True,
+    'application': True,
 }
