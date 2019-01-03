@@ -1,27 +1,35 @@
+# -*- coding: utf-8 -*-
 {
-    'name': 'Example',
-    'summary': 'Nguyen Ngoc Tien',
-    'version': '0.1.0.0',
-    'author': 'NGoctien',
-    'category': 'Ngoctien Application',
-    'license': 'AGPL-3',
-    'website': 'http://www.domain.com',
-    'sequence': 1,
+    'name': "exam-base",
+
+    'summary': """
+        subtitle on modules listing or apps.openerp.com""",
+
+    'description': """
+        Long description of module's purpose
+    """,
+
+    'author': "Ngoctien",
+    'website': "http://www.yourcompany.com",
+
+    # Categories can be used to filter modules in modules listing
+    # Check https://github.com/odoo/odoo/blob/11.0/odoo/addons/base/module/module_data.xml
+    # for the full list
+    'category': 'Uncategorized',
+    'version': '0.1',
+
+    # any module necessary for this one to work correctly
     'depends': ['base'],
+
+    # always loaded
     'data': [
-        'views/project.xml',
         'views/task.xml',
+        'views/project.xml',
         'views/menu.xml',
     ],
+    # only loaded in demonstration mode
     'demo': [
         'demo/demo.xml',
     ],
-    'css': [],
-    'qweb': [],
-    'installable': True,
-    'application': True,
-    'auto_install': False,
-    'description': """
-		day la bai tap cua ngoctien
-	""",
+    'application':True,
 }

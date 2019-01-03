@@ -1,2 +1,4 @@
+# -*- coding: utf-8 -*-
+
 from . import project
-from . import Task
+from . import task

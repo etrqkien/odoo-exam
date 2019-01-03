@@ -6,12 +6,16 @@ Tạo branch với tên branch là tên của mình. Thực hiện viết câu t
 ### Câu 1:  
 Tạo file odoo-exam.conf chứa các config tối thiểu để có thể chạy được odoo  
 Viết lệnh với odoo-bin sử dụng file config trên để chạy odoo  
+    - 
 Viết lệnh với odoo-bin sử dụng file config trên để update module project, tên database sử dụng là test-project  
-Muốn chạy odoo ở cổng 69 thì phải làm thế nào. Hãy viết cả 2 cách: chỉ định cổng ở dòng lệnh với odoo-bin và chỉ định cổng trong file config.  
+    - -d test-project 
+Muốn chạy odoo ở cổng 69 thì phải làm thế nào. Hãy viết cả 2 cách: chỉ định cổng ở dòng lệnh với odoo-bin và chỉ định cổng trong file config. 
+    - http_port = 69 (file config)
+    - http-port 69 (dòng lệnh với odoo-bin)
 
 Trả lời:  
 C:\Code\myaddon\venv\Scripts\python.exe -c C:\Code\myaddon\odoo-exam.conf -d test-project -u odoo-exam --xmlrpc-port 69
-http_port = 69
+
 
 ### Câu 2:  
 Tạo module project-base : (Viết lệnh tạo module bằng scaffold)  
@@ -36,8 +40,7 @@ Chú ý: user sử dụng bảng res_users của hệ thống. Hãy tự depend 
 
 Trả lời:  
 ( ... lệnh tạo module bằng scaffold ... ) 
- C:\Code\myaddon\venv\Scripts\python.exe C:\Code\myaddon\odoo-bin scaffold exam-base 
- C:\Code\myaddon\odoo-exam
+C:\Code\myaddon\odoo-bin python scaffold exam-base C:\Code\myaddon\odoo-exam
 ### Câu 3:  
 Tạo module project-extern chứa các mở rộng:  
 - exam.project: thêm trường status kiểu selection : init, finish, fail . Mặc định init . Danh sách project mặc định filter chỉ hiện các project init (thêm filter init) . Hiển thị trường này ra form view của project.  
