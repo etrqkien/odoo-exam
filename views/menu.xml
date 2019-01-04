@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="exam_root_menu" name="Du an cua toi"/>
+        <menuitem id="exam_project_menu" name="Dự Án" parent="exam_root_menu"
+                  action="exam_project_act" sequence="1"/>
+        <menuitem id="exam_task_menu" name="Danh mục task" parent="exam_root_menu"
+                  action="exam_task_act" sequence="5"/>
+    </data>
+</odoo>

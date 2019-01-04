@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="exam_project_tree" model="ir.ui.view">
+            <field name="name">List project</field>
+            <field name="model">exam.project</field>
+            <field name="arch" type="xml">
+                <tree string="Project">
+                    <field name="name"/>
+                    <field name="manager_user_id"/>
+                    <field name="start_date"/>
+                    <field name="due_date"/>
+                    <field name="task_ids"/>
+
+                </tree>
+            </field>
+        </record>
+
+        <record id="exam_project_form" model="ir.ui.view">
+            <field name="name">project</field>
+            <field name="model">exam.project</field>
+            <field name="arch" type="xml">
+                <form string="aaa">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="manager_user_id"/>
+                                <field name="task_ids"/>
+                            </group>
+                            <group>
+                                <field name="start_date"/>
+                                <field name="due_date"/>
+                                <field name="status"/>
+                                <field name="compute"/>
+                            </group>
+                        </group>
+                        <!--<group>-->
+                        <!--<group>-->
+                        <!--<field name="name"/>-->
+                        <!--<field name="start_date"/>-->
+                        <!--<field name="due_date"/>-->
+                        <!--<field name="manager_user_id"/>-->
+                        <!--<field name="task_ids"/>-->
+                        <!--<field name="status"/>-->
+                        <!--<field name="compute"/>-->
+                        <!--</group>-->
+                        <!--</group>-->
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="exam_project_kanban" model="ir.ui.view">
+            <field name="name">Project_kanban</field>
+            <field name="model">exam.project</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name"/>
+                    <field name="start_date"/>
+                    <field name="due_date"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <div class="oe_kanban_details">
+                                    <strong>
+                                        <field name="name"/>
+                                    </strong>
+                                    <field name="start_date"/>
+                                    <field name="due_date"/>
+                                </div>
+
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="exam_project_act" model="ir.actions.act_window">
+            <field name="name">Dự Án</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">exam.project</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="help" type="html">
+                <p>Create new here</p>
+            </field>
+        </record>
+
+    </data>
+</odoo>
