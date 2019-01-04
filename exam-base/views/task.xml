@@ -22,7 +22,7 @@
             <field name="arch" type="xml">
                 <form>
                     <sheet>
-                        <group>
+                        <group name="group_top">
                             <group name="goup-left">
                                 <field name="name"/>
                                 <field name="user_id" string="name"/>

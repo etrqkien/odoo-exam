@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <!-- Inherit Form View to Modify it -->
+       <record id="inherit_form_task" model="ir.ui.view">
+           <field name="name">inherit_form_task</field>
+           <field name="model">exam.task</field>
+           <field name="inherit_id" ref="exam-base.view_task_form"/>
+           <field name="arch" type="xml">
+               <xpath expr="//form/sheet/group[@name='group_top']/group[@name='group-right']" position="inside">
+                   <field name="status"/>
+               </xpath>
+           </field>
+       </record>
+        <!-- Inherit Tree View to Modify it -->
+        <record id="inherit_tree_task" model="ir.ui.view">
+            <field name="name">inherit_tree_task</field>
+            <field name="model">exam.task</field>
+            <field name="inherit_id" ref="exam-base.view_task_tree"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree" position="inside">
+                    <field name="working_status"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

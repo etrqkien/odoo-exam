@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <!-- Inherit Form View to Modify it -->
+       <record id="inherit_view_form_project" model="ir.ui.view">
+           <field name="name">Form Inherit project</field>
+           <field name="model">exam.project</field>
+           <field name="inherit_id" ref="exam-base.view_project_form"/>
+           <field name="arch" type="xml">
+               <xpath expr="//form/sheet/group[@name='group_top']/group[@name='group_left']" position="inside">
+                   <!-- Add your fields or attributes here -->
+                   <field name="working_status"/>
+               </xpath>
+           </field>
+       </record>
+    </data>
+</odoo>
