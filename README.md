@@ -11,8 +11,8 @@ Tạo file odoo-exam.conf chứa các config tối thiểu để có thể chạ
 
 Trả lời: 
 1. python -c D:/Github/odoo-exam/odoo-exam.conf
-2. python -c D:/Github/odoo-exam/odoo-exam.conf -d test-project -u odoo-exam
-3. python -c D:/Github/odoo-exam/odoo-exam.conf -d test-project -u odoo-exam --xmlrpc-port 69
+2. python -c D:/Github/odoo-exam/odoo-exam.conf -d test-project -u project-base
+3. python -c D:/Github/odoo-exam/odoo-exam.conf -d test-project -u project-base --xmlrpc-port 69
 
 
 

@@ -28,15 +28,15 @@ class ExamTask(models.Model):
     def working_status_compute(self):
         if self.start_date and self.due_date:
 
-            sdate = fields.Date.from_string(self.start_date)
-            ddate = fields.Date.from_string(self.due_date)
-            today = fields.Date.from_string(fields.Date.today())
+            sdate = fields.Datetime.from_string(self.start_date)
+            ddate = fields.Datetime.from_string(self.due_date)
+            now = fields.Datetime.from_string(fields.Datetime.now())
 
             if self.status == 'finish':
                 self.working_status = 'finish'
-            elif today < sdate:
+            elif now < sdate:
                 self.working_status = 'not'
-            elif sdate <= today <= ddate:
+            elif sdate <= now <= ddate:
                 self.working_status = 'in'
             else:
                 self.working_status = 'over'

@@ -25,15 +25,7 @@ class ExamProject(models.Model):
     def working_status_compute(self):
 
         if self.start_date and self.due_date:
-            # sdate = datetime.date(*[int(i) for i in self.start_date.split("-")])
-            # ddate = datetime.date(*[int(i) for i in self.due_date.split("-")])
 
-            # if datetime.date.today() < sdate:
-            #     self.working_status = 'chua'
-            # elif sdate <= datetime.date.today() <= ddate:
-            #     self.working_status = 'dang'
-            # else:
-            #     self.working_status = 'da'
             sdate = fields.Date.from_string(self.start_date)
             ddate = fields.Date.from_string(self.due_date)
             today = fields.Date.from_string(fields.Date.today())
