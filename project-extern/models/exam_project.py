@@ -2,6 +2,7 @@
 
 from odoo import fields, models, api
 
+
 # import datetime
 
 
@@ -21,18 +22,22 @@ class ExamProject(models.Model):
                                       compute='working_status_compute',
                                       )
 
+    @api.multi
     @api.depends("start_date", "due_date")
     def working_status_compute(self):
 
-        if self.start_date and self.due_date:
+        for rec in self:
+            if rec.start_date and rec.due_date:
 
-            sdate = fields.Date.from_string(self.start_date)
-            ddate = fields.Date.from_string(self.due_date)
-            today = fields.Date.from_string(fields.Date.today())
+                sdate = fields.Date.from_string(rec.start_date)
+                ddate = fields.Date.from_string(rec.due_date)
+                today = fields.Date.from_string(fields.Date.today())
 
-            if today < sdate:
-                self.working_status = 'chua'
-            elif sdate <= today <= ddate:
-                self.working_status = 'dang'
-            else:
-                self.working_status = 'da'
+                if today < sdate:
+                    rec.working_status = 'chua'
+                elif sdate <= today <= ddate:
+                    rec.working_status = 'dang'
+                else:
+                    rec.working_status = 'da'
+
+            rec.working_status = 'chua'

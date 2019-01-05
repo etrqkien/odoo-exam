@@ -16,8 +16,10 @@ class ExamProject(models.Model):
                                string="Danh sách task của dự án",
                                required=False, )
 
+    @api.multi
     @api.constrains("start_date", "due_date")
     def date_validate(self):
-        if self.start_date and self.due_date:
-            if self.start_date > self.due_date:
-                raise exceptions.ValidationError(u"Ngày kết thúc không thể diễn ra trước ngày bắt đầu!")
+        for rec in self:
+            if rec.start_date and rec.due_date:
+                if rec.start_date > rec.due_date:
+                    raise exceptions.ValidationError(u"Ngày kết thúc không thể diễn ra trước ngày bắt đầu!")
