@@ -23,7 +23,7 @@
     'depends': ['base'],
     # only loaded in demonstration mode
     'demo': [
-
+        'demo/demo.xml',
     ],
     # always loaded
     'data': [
@@ -32,7 +32,7 @@
         'views/exam_task.xml',
         'views/exam_user.xml',
         'views/menu.xml',
-        'demo/demo.xml',
+
     ],
 
 }

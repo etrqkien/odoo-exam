@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 
 from odoo import fields, models, api
-import datetime
+
+
+# import datetime
 
 
 class ExamTask(models.Model):
@@ -24,15 +26,17 @@ class ExamTask(models.Model):
 
     @api.depends("start_date", "due_date", "status")
     def working_status_compute(self):
-        if (self.start_date is not False) & (self.due_date is not False):
-            sdate = datetime.date(*[int(i) for i in self.start_date.split("-")])
-            ddate = datetime.date(*[int(i) for i in self.due_date.split("-")])
+        if self.start_date and self.due_date:
+
+            sdate = fields.Date.from_string(self.start_date)
+            ddate = fields.Date.from_string(self.due_date)
+            today = fields.Date.from_string(fields.Date.today())
 
             if self.status == 'finish':
                 self.working_status = 'finish'
-            elif datetime.date.today() < sdate:
+            elif today < sdate:
                 self.working_status = 'not'
-            elif sdate <= datetime.date.today() <= ddate:
+            elif sdate <= today <= ddate:
                 self.working_status = 'in'
             else:
                 self.working_status = 'over'

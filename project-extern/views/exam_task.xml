@@ -3,7 +3,7 @@
     <data>
 
         <!-- Inherit Form View to Modify it -->
-        <record id="exam_project_task_inherited" model="ir.ui.view">
+        <record id="exam_task_form_inherited" model="ir.ui.view">
             <field name="name">Task-extern</field>
             <field name="model">exam.task</field>
             <field name="inherit_id" ref="project-base.exam_task_form"/>
