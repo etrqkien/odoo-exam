@@ -7,9 +7,9 @@ class Task(models.Model):
     status = fields.Selection(selection=[('init', 'khoi tao'), ('inprogess', 'dang lam viec'), ('finish', 'kethuc')])
     working_status = fields.Selection(
         selection=[('bd', 'not start'), ('dang', 'in working time'), ('kt', 'finish'), ('quahan', 'over deadline')],
-        compute='working_status_compute'
+        # compute='working_status_compute'
     )
-    @api.onchange('status','working_status')
+    @api.depends('status','working_status')
     def working_status_compute(self):
         if self.start_date and self.due_date:
 

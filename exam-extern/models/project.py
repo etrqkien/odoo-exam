@@ -9,7 +9,7 @@ class project(models.Model):
         [('chua', 'Chưa Bắt đầu'), ('dang', 'đang hoạt động'), ('ketthuc', 'Đã kết thúc')], default="chua",
         compute='working_status_compute')
 
-    @api.onchange("start_date", "due_date")
+    @api.depends("start_date", "due_date")
     def working_status_compute(self):
         dt = datetime.datetime.now()
         now = dt.strftime("%Y-%m-%d")
