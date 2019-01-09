@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+exam_1,tag-test,model_exam_tasks,,1,1,1,1
+exam_2,tag-test,model_exam_tags,,1,1,1,1
