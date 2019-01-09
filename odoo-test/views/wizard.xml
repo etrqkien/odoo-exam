@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_Tag_wizard" model="ir.ui.view">
+            <field name="name">view_Tag_wizard</field>
+            <field name="model">tags.wizard</field>
+            <field name="arch" type="xml">
+                <form string="My Wizard">
+                    <sheet>
+                        <group name="top">
+                            <field name="task_ids" string="Task"/>
+                            <field name="tag_ids" string="Tags"/>
+                            <field name="option"/>
+                            <footer>
+                                <button type="object" name="action_update" string="Update"/>
+                                <button type="object" string="Cannel" special="cancel"/>
+                            </footer>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <act_window id="action_task_wizard" name="Test Tasks Wizard" src_model="test.tags"
+                    res_model="tags.wizard"
+                    view_mode="form" target="new" multi="True"/>
+    </data>
+</odoo>
