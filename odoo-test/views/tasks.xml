@@ -5,7 +5,7 @@
             <field name="name">view_kanban_task</field>
             <field name="model">test.tasks</field>
             <field name="arch" type="xml">
-                <kanban>
+                <kanban default_group_by="stage_id">
                     <field name="name"/>
                     <filed name="priority"/>
                     <field name="tag_ids"/>
@@ -57,6 +57,7 @@
                             <group name="right">
                                 <field name="priority"/>
                                 <field name="tag_ids"/>
+                                <field name="stage_id"/>
                             </group>
                         </group>
                     </sheet>

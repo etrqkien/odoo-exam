@@ -27,6 +27,7 @@
         'views/tags.xml',
         'views/tasks.xml',
         'views/wizard.xml',
+        'views/stage.xml',
         'views/menu.xml',
     ],
     # only loaded in demonstration mode
