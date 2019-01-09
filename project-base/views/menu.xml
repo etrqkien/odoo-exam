@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <menuitem id="exam_project_menu" name="Exam Project" sequence="1"/>
+            <menuitem id="project_item" name="Project" parent="exam_project_menu"
+                      action="exam_project_act" sequence="1"/>
+            <menuitem id="task_item" name="Task" parent="exam_project_menu"
+                      action="exam_task_act" sequence="5"/>
+            <menuitem id="user_item" name="User" parent="exam_project_menu"
+                      action="exam_user_act" sequence="10"/>
+
+    </data>
+</odoo>
