@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_kanban_task" model="ir.ui.view">
+            <field name="name">view_kanban_task</field>
+            <field name="model">test.tasks</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="name"/>
+                    <filed name="priority"/>
+                    <field name="tag_ids"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_content">
+                                <div>
+                                    <strong>
+                                        <a type="open">
+                                            <field name="name"/>
+                                        </a>
+                                    </strong>
+                                    <field name="tag_ids"/>
+                                </div>
+                                <field name="user_id"/>
+                                <div class="oe_kanban_footer">
+                                    <div>
+                                        <!-- Left hand footer... -->
+                                        <field name="priority" widget="priority"/>
+                                    </div>
+                                    <div>
+                                        <!-- Right hand footer... -->
+                                        <img t-att-title="record.user_id.value"
+                                             t-att-src="kanban_image(
+                                                                'res.users', 'image_small',
+                                                                record.user_id.raw_value)"
+                                             width="24" height="24"
+                                             class="oe_kanban_avatar pull-right"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+        <record id="view_form_task" model="ir.ui.view">
+            <field name="name">view_form_task</field>
+            <field name="model">test.tasks</field>
+            <field name="arch" type="xml">
+                <form string="My Form">
+                    <sheet>
+                        <group name="top">
+
+                            <group name="left">
+                                <field name="name"/>
+                                <field name="user_id"/>
+                            </group>
+                            <group name="right">
+                                <field name="priority"/>
+                                <field name="tag_ids"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="action_tasks" model="ir.actions.act_window">
+            <field name="name">action_tasks</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">test.tasks</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    <!-- Add Text Here -->
+                    Create new Here
+                </p>
+                <p>
+                    <!-- More details about what a user can do with this object will be OK -->
+                    Create new here
+                </p>
+            </field>
+        </record>
+    </data>
+</odoo>
