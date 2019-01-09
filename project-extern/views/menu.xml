@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="tag_item" name="Tags" parent="project-base.exam_project_menu" action="exam_tag_act" sequence="7"/>
+        <menuitem id="tag_wizard_item" name="Tag Wizard" parent="project-base.exam_project_menu" action="tag_wizard_act" sequence="8"/>
+
+    </data>
+</odoo>

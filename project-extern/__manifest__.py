@@ -26,10 +26,12 @@
 
     # always loaded
     'data': [
-        # 'security/ir.model.access.csv',
-
+        'security/ir.model.access.csv',
+        'views/exam_tag.xml',
         'views/exam_project.xml',
-        'views/exam_task.xml'
+        'views/exam_task.xml',
+        'views/tag_wizard.xml',
+        'views/menu.xml',
     ],
     # only loaded in demonstration mode
     # 'demo': [

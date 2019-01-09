@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="form_tag_wizard" model="ir.ui.view">
+            <field name="name">Tag Wizard</field>
+            <field name="model">tag.wizard</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="task_id"/>
+                            <field name="tags"/>
+                            <field name="update_option"/>
+                        </group>
+                        <footer>
+                            <button name="tag_update" type="object"
+                                    string="Update"
+                                    class="oe_highlight"
+                                    attrs="{'invisible':
+                                [('task_id','=',False),
+                                ('tags','=',False)]}"
+                            />
+                            <button special="cancel" string="Cancel"/>
+                        </footer>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <act_window id="tag_wizard_act"
+                    name="Tag Wizard"
+                    src_model="exam.tag"
+                    res_model="tag.wizard"
+                    view_mode="form"
+                    target="new"
+        />
+
+    </data>
+</odoo>
