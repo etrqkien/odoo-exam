@@ -80,6 +80,8 @@
                                     </li>
                                     <li t-att-class="red_or_black">
                                         <field name="status"/>
+                                    </li>
+                                    <li t-att-class="red_or_black">
                                         <field name="working_status"/>
                                     </li>
 

@@ -38,7 +38,7 @@ class TagWizard(models.TransientModel):
                     if tag_name != tag:
                         if val_tag:
                             self.tags_relate.create(val_tag)
-            vals['tag_ids'] =
+            vals['tag_ids'] = tag_list
         # Update task
         if vals:
             self.task_id.write(vals)
