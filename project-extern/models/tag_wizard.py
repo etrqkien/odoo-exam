@@ -10,37 +10,50 @@ class TagWizard(models.TransientModel):
     _description = 'Tag Wizard'
 
     task_id = fields.Many2one('exam.task', string='Task')
-    tags_relate = fields.Many2one('exam.tag')
     tags = fields.Char('Tags')
 
     update_option = fields.Selection(
         [('add', 'Add'), ('replace', 'Replace'), ('delete', 'Delete')],
-        'Update Option', default='add'
+        'Update Option', required=True, default='add',
     )
 
     @api.multi
     def tag_update(self):
         self.ensure_one()
-        if not (self.task_id or self.tags):
-            raise exceptions.ValidationError('No data to update!')
-        _logger.debug('Update on %s', self.task_id.ids)
-
-        vals = {}
-        if self.task_id:
-            vals['name'] = self.task_id['name']
+        # if not (self.task_id or self.tags):
+        #     raise exceptions.ValidationError('No data to update!')
+        # _logger.debug('Update on %s', self.task_id.ids)
         if self.tags:
             tag_list = self.tags.split(',')
-            val_tag = {}
-            for tag in tag_list:
-                val_tag['name'] = tag
-                for tag_name in self.tags_relate:
-                    # Thêm tag mới
-                    if tag_name != tag:
-                        if val_tag:
-                            self.tags_relate.create(val_tag)
-            vals['tag_ids'] = tag_list
-        # Update task
-        if vals:
-            self.task_id.write(vals)
+            if self.update_option == 'add':
+
+                for tag in tag_list:
+                    tag = tag.strip()
+                    if self.env['exam.tag'].search([('name', '=', tag)]):
+                        tag_add = self.env['exam.tag'].search([('name', '=', tag)])
+                    else:
+                        tag_add = self.env['exam.tag'].create({'name': tag})
+
+                    self.task_id.write({'tag_ids': [(4, tag_add.id)]})
+
+            elif self.update_option == 'replace':
+
+                tag_add_list = []
+                for tag in tag_list:
+                    tag = tag.strip()
+                    if self.env['exam.tag'].search([('name', '=', tag)]):
+                        tag_add = self.env['exam.tag'].search([('name', '=', tag)])
+                    else:
+                        tag_add = self.env['exam.tag'].create({'name': tag})
+                    tag_add_list.append(tag_add.id)
+
+                self.task_id.write({'tag_ids': [(6, 0, tag_add_list)]})
+
+            else:
+                for tag in tag_list:
+                    tag = tag.strip()
+                    if self.env['exam.tag'].search([('name', '=', tag)]):
+                        tag_add = self.env['exam.tag'].search([('name', '=', tag)])
+                        self.task_id.write({'tag_ids': [(3, tag_add.id)]})
 
         return True

@@ -13,7 +13,7 @@
         </record>
 
         <record id="form_exam_tag" model="ir.ui.view">
-            <field name="name">exam_tag</field>
+            <field name="name">Exam Tag</field>
             <field name="model">exam.tag</field>
             <field name="arch" type="xml">
                 <form string="">
