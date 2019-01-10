@@ -27,7 +27,7 @@
         </record>
 
         <record id="exam_tag_act" model="ir.actions.act_window">
-            <field name="name">exam_tag</field>
+            <field name="name">Tags</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">exam.tag</field>
             <field name="view_mode">tree,form</field>
