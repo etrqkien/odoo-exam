@@ -8,7 +8,7 @@ from odoo import fields, models, api
 
 class ExamTask(models.Model):
     _inherit = 'exam.task'
-
+    _order = 'priority desc, due_date asc'
     status = fields.Selection(string="Status",
                               selection=[('init', 'Init'),
                                          ('inprogress', 'In Progress'),
@@ -23,6 +23,7 @@ class ExamTask(models.Model):
 
                                       compute='working_status_compute',
                                       )
+
     @api.multi
     @api.depends("start_date", "due_date", "status")
     def working_status_compute(self):
@@ -43,3 +44,8 @@ class ExamTask(models.Model):
                     rec.working_status = 'over'
 
             rec.working_status = 'not'
+
+    tag_ids = fields.Many2many('exam.tag', string='Tags')
+    priority = fields.Selection(
+        [('0', 'Low'), ('1', 'Normal'), ('2', 'High'), ('3', 'Extremely High')],
+        'Priority', default='1')
