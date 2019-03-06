@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_tree_exam_project_inherit" model="ir.ui.view">
+        <field name="name">Inherit Exam Project</field>
+        <field name="model">exam.project</field>
+        <field name="inherit_id" ref="project-base.view_tree_exam_project"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='due_date']" position="after">
+                <field name="status" />
+                <field name="working_status" />
+            </xpath>
+
+        </field>
+
+    </record>
+
+    <record id="view_form_exam_project_inherit" model="ir.ui.view">
+        <field name="name">Inherit Exam Project</field>
+        <field name="model">exam.project</field>
+        <field name="inherit_id" ref="project-base.view_form_exam_project"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='due_date']" position="after">
+                <field name="status" />
+                <field name="working_status" />
+            </xpath>
+
+        </field>
+
+    </record>
+
+    <record id="view_search_exam_project" model="ir.ui.view">
+        <field name="name">Inherit Exam Project</field>
+        <field name="model">exam.project</field>
+        <field name="arch" type="xml">
+            <search>
+                <!--<field name="name"/>-->
+                <field name="status"/>
+                <filter name="status_init" string="Init" domain="[('status', '=', '1')]"/>
+
+            </search>
+
+        </field>
+
+    </record>
+
+</odoo>

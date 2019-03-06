@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_tree_exam_task_inherit" model="ir.ui.view">
+        <field name="name">Exam Task Tree</field>
+        <field name="model">exam.task</field>
+        <field name="inherit_id" ref="project-base.view_tree_exam_task"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='due_date']" position="after">
+                <field name="status"/>
+                <field name="working_status"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_form_exam_task_inherit" model="ir.ui.view">
+        <field name="name">Exam Task Tree</field>
+        <field name="model">exam.task</field>
+        <field name="inherit_id" ref="project-base.view_form_exam_task"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='project_id']" position="after">
+                <field name="status"/>
+                <field name="working_status"/>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
