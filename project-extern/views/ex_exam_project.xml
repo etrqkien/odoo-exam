@@ -43,4 +43,10 @@
 
     </record>
 
+    <record id="project-base.action_exam_project" model="ir.actions.act_window">
+        <field name="context">
+            {"search_default_status_init": True}
+        </field>
+    </record>
+
 </odoo>
