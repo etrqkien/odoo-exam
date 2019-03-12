@@ -1,5 +1,53 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
+    <act_window id="project-base.action_exam_task"
+                name="Extern Exam Task"
+                res_model="exam.task"
+                view_mode="kanban,tree,form" />
+
+    <record id="view_kanban_exam_task" model="ir.ui.view">
+        <field name="name">Kanban Interface</field>
+        <field name="model">exam.task</field>
+        <field name="arch" type="xml">
+            <kanban>
+                <field name="name"/>
+                <field name="tag_ids"/>
+                <field name="priority"/>
+                <field name="user_id"/>
+                <!--<field name="color"/>-->
+
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="o_kanban_image">
+                                <img t-att-title="record.user_id.value"
+                                     t-att-src="kanban_image('res.users', 'image_small', record.user_id.raw_value)" class="oe_kanban_avatar pull-right" />
+                            </div>
+                            <div class="oe_kanban_content">
+                                <div>
+                                    <strong>
+                                        <a type="open"><field name="name"/></a>
+                                    </strong>
+                                </div>
+
+                                <div>
+                                    <field name="tag_ids" /> <br></br>
+                                </div>
+
+                                <div class="oe_kanban_footer">
+                                    <div>
+                                        <field name="priority" widget="priority" groups="base.group_user" />
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+         </field>
+    </record>
+
     <record id="view_tree_exam_task_inherit" model="ir.ui.view">
         <field name="name">Exam Task Tree</field>
         <field name="model">exam.task</field>
@@ -20,8 +68,12 @@
             <xpath expr="//field[@name='project_id']" position="after">
                 <field name="status"/>
                 <field name="working_status"/>
+                <field name="priority"/>
+                <field name="tag_ids" widget="many2many_tags" />
             </xpath>
         </field>
     </record>
+
+
 
 </odoo>

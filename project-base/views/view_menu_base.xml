@@ -27,5 +27,4 @@
               parent="menu_project_base"
               action="action_exam_task" />
 
-
 </odoo>

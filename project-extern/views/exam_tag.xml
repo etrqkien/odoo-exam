@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <act_window id="action_exam_tag"
+                name="Exam Tag Action"
+                res_model="exam.tag"
+                view_mode="tree,form"
+    />
+
+    <menuitem id="menu_exam_tag"
+              name="Tags"
+              parent="project-base.menu_project_base"
+              action="action_exam_tag"
+    />
+
+    <record id="view_tree_exam_tag" model="ir.ui.view">
+        <field name="name">Exam Tag Tree</field>
+        <field name="model">exam.tag</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_form_exam_tag" model="ir.ui.view">
+        <field name="name">Exam Tag Form</field>
+        <field name="model">exam.tag</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+
+
+</odoo>
