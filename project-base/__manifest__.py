@@ -1,38 +1,30 @@
 # -*- coding: utf-8 -*-
+
 {
-    'name': "project-base",
-
-    'summary': """
-        Short (1 phrase/line) summary of the module's purpose, used as
-        subtitle on modules listing or apps.openerp.com""",
-
-    'description': """
-        Long description of module's purpose
-    """,
-
-    'author': "My Company",
-    'website': "http://www.yourcompany.com",
-
-    # Categories can be used to filter modules in modules listing
-    # Check https://github.com/odoo/odoo/blob/11.0/odoo/addons/base/module/module_data.xml
-    # for the full list
-    'category': 'Uncategorized',
+    'name': "hoang keyyy",
     'version': '0.1',
-
-    # any module necessary for this one to work correctly
+    'author': 'keyyy',
+    'maintainer': 'Odoo SA',
+    'website': "http://fb.com/hoangkeyyyy",
+    'license': 'LGPL-3',
+    'category': 'Uncategorized',
+    'sequence': 1,
+    'description': """bai test 1""",
+    'summary': """Sample addon for Odoo""",
     'depends': ['base'],
-    # only loaded in demonstration mode
-    'demo': [
-        'demo/demo.xml',
-    ],
-    # always loaded
-    'data': [
-        # 'security/ir.model.access.csv',
-        'views/exam_project.xml',
-        'views/exam_task.xml',
-        'views/exam_user.xml',
-        'views/menu.xml',
-
-    ],
-
+    'data': ['view/project_view.xml',
+             'view/task_view.xml',
+             'view/menu.xml'],
+    'demo': [],
+    'qweb': [],
+    # 'js': ['static/src/js/first_module.js',],
+    # 'css': ['static/src/css/web_example.css',],
+    # 'images': ['static/description/icon.png',],
+    'auto_install': False,
+    'application': True,
+    'installable': True,
+    # 'external_dependencies': {'python' : ['usb.core','serial','qrcode']}
+    # 'pre_init_hook': 'pre_init_hook',
+    # 'post_init_hook': 'post_init_hook',
+    # 'uninstall_hook': 'uninstall_hook',
 }

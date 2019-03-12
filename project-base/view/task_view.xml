@@ -1,51 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-
-        <record id="exam_task_act" model="ir.actions.act_window">
-            <field name="name">Task</field>
+        <record id="task_view" model="ir.actions.act_window">
+            <field name="name">task view</field>
             <field name="type">ir.actions.act_window</field>
             <field name="res_model">exam.task</field>
             <field name="view_mode">tree,form</field>
         </record>
-
-        <record id="exam_task_tree" model="ir.ui.view">
-            <field name="name">Task</field>
+        <record id="task_view_tree" model="ir.ui.view">
+            <field name="name">task from view</field>
             <field name="model">exam.task</field>
             <field name="arch" type="xml">
-                <tree string="Task">
+                <tree>
                     <field name="name"/>
-                    <field name="user_id"/>
                     <field name="start_date"/>
                     <field name="due_date"/>
+                    <field name="user_id"/>
                     <field name="project_id"/>
                 </tree>
             </field>
         </record>
-
-
-        <record id="exam_task_form" model="ir.ui.view">
-            <field name="name">Task</field>
+        <record id="task_view_form" model="ir.ui.view">
+            <field name="name">task form view</field>
             <field name="model">exam.task</field>
             <field name="arch" type="xml">
-                <form string="Task">
+                <form>
                     <sheet>
                         <group>
-                            <group>
-                                <field name="name"/>
-                                <field name="user_id"/>
-                                <field name="project_id"/>
-                            </group>
-                            <group>
-                                <field name="start_date"/>
-                                <field name="due_date"/>
-                            </group>
+                            <field name="name"/>
+                            <field name="start_date"/>
+                            <field name="due_date"/>
+                            <field name="user_id"/>
+                            <field name="project_id"/>
                         </group>
                     </sheet>
                 </form>
             </field>
         </record>
-
 
     </data>
 </odoo>

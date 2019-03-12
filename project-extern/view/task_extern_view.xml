@@ -1,22 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
-
         <!-- Inherit Form View to Modify it -->
-        <record id="exam_task_form_inherited" model="ir.ui.view">
-            <field name="name">Task-extern</field>
+        <record id="task_extern_inherit_view" model="ir.ui.view">
+            <field name="name">task view</field>
             <field name="model">exam.task</field>
-            <field name="inherit_id" ref="project-base.exam_task_form"/>
+            <field name="inherit_id" ref="project-base.task_view_form"/>
             <field name="arch" type="xml">
 
                 <xpath expr="//field[@name='project_id']" position="after">
+                    <!-- Add your fields or attributes here -->
                     <field name="status"/>
-                </xpath>
-                <xpath expr="//field[@name='due_date']" position="after">
-                    <field name="working_status"/>
+                    <field name="compute_working_status"/>
                 </xpath>
             </field>
         </record>
+
 
     </data>
 </odoo>

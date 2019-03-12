@@ -1,31 +1,22 @@
-# -*- coding: utf-8 -*-
-
-from odoo import fields, models, api
+from odoo import models, fields, api
 
 
-# import datetime
-
-
-class ExamProject(models.Model):
-    _inherit = 'exam.project'
-
-    status = fields.Selection(string="Status",
+class project_extern(models.Model):
+    _inherit = "exam.project"
+    status = fields.Selection(string="trang thai",
                               selection=[('init', 'Init'),
                                          ('finish', 'Finish'),
-                                         ('fail', 'Fail')],
+                                         ('fail', 'Fail'), ],
                               default='init',
                               )
-    working_status = fields.Selection(string="Working status",
-                                      selection=[('chua', 'Chưa bắt đầu'),
-                                                 ('dang', 'Đang hoạt động'),
-                                                 ('da', 'Đã kết thúc')],
-                                      compute='working_status_compute',
-                                      )
+    working_status = fields.Selection(string="trang thai thuc hien ", selection=[('chua', 'chua bat dau'),
+                                                                                  ('dang', 'dang hoat dong'),
+                                                                                  ('da', 'da ket thuc'), ],
+                                      required=False, compute="cpt_working_status")
 
     @api.multi
-    @api.depends("start_date", "due_date")
-    def working_status_compute(self):
-
+    @api.depends('start_date', 'due_date')
+    def cpt_working_status(self):
         for rec in self:
             if rec.start_date and rec.due_date:
 
@@ -39,5 +30,3 @@ class ExamProject(models.Model):
                     rec.working_status = 'dang'
                 else:
                     rec.working_status = 'da'
-
-            rec.working_status = 'chua'
