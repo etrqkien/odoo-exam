@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    <record id="view_open_wizard_form" model="ir.ui.view">
+        <field name="name">Personal Information</field>
+        <field name="model">iuh.wizard</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Personal Information">
+                <group>
+
+                    <field name="task_id"/>
+                    <field name="tag_ids"/>
+                    <field name="option"/>
+
+                </group>
+                <footer>
+                    <button name="button_save" string="Update" type="object" class="oe_highlight"/>
+                    or
+                    <button special="cancel" string="Cancel" class="oe_link" default_focus="1"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_open_wizard" model="ir.actions.act_window">
+        <field name="name">Open Wizard</field>
+        <field name="res_model">iuh.wizard</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+    </data>
+</odoo>

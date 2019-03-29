@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="tmy_extends_form" model="ir.ui.view">
+            <field name="name">dANH SÁCH task</field>
+            <field name="model">iuh.tasks</field>
+            <field name="inherit_id" ref="project_base.task_form_view"/>
+            <field name="arch" type="xml">
+
+                <field name="name" position="after">
+                    <field name="status"/>
+                </field>
+                <field name="name" position="after">
+                    <field name="working_status"/>
+                </field>
+
+            </field>
+        </record>
+        <record model="ir.ui.view" id="taskin_tree_view">
+            <field name="name">Danh sách task</field>
+            <field name="model">iuh.tasks</field>
+            <field name="type">tree</field>
+            <field name="inherit_id" ref="project_base.tasks_tree_view"/>
+            <field name="arch" type="xml">
+
+                <field name="name" position="after">
+                    <field name="status"/>
+                </field>
+
+                <field name="start_date" position="after">
+                    <field name="working_status"/>
+                </field>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

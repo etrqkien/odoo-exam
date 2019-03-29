@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="tag_menu" name="Quản lý Tag" parent="" action="tag_act" sequence="15"/>
+        <menuitem id="tag_1_menu" name="Tags" parent="tag_menu" action="tag_act"/>
+    
+    </data>
+</odoo>

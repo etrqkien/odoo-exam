@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="projects_menu"
+                  name="QL Prọject"
+                  action="projects_act_mode"
+                  sequence="1"
+        />
+
+         <menuitem id="tasks_menu"
+                  name="QL Dự án"
+                  action="action_tasks_tree_view"
+                  sequence="2"
+        />
+
+    </data>
+</odoo>

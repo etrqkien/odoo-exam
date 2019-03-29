@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="my_extends_form" model="ir.ui.view">
+            <field name="name">dANH SÁCH PROJECT</field>
+            <field name="model">iuh.project</field>
+            <field name="inherit_id" ref="project_base.project_form_view"/>
+            <field name="arch" type="xml">
+
+                <field name="name" position="after">
+                    <field name="status"/>
+                    <field name="working_status"/>
+                </field>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="pr_tree_view">
+            <field name="name">aaatree</field>
+            <field name="model">iuh.project</field>
+            <field name="type">tree</field>
+            <field name="inherit_id" ref="project_base.projects_tree_view"/>
+            <field name="arch" type="xml">
+                    <field name="start_date" position="after">
+                        <field name="status" domain="[('status','=',1)]"/>
+                    </field>
+                <field name="start_date" position="after">
+                        <field name="working_status"/>
+                    </field>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="project_base.projects_act_mode">
+            <field name="context">
+                {'search_default_filter_status': 1}
+            </field>
+        </record>
+
+
+        <record id="view_filter_project" model="ir.ui.view">
+            <field name="name">Danh Sách Bài Viết Filter</field>
+            <field name="model">iuh.project</field>
+            <field name="arch" type="xml">
+                <search>
+                    <filter name="search_default_filter_status" string="Search init project"
+                            domain="[('status','=',1)]"/>
+                </search>
+            </field>
+        </record>
+
+    </data>
+</odoo>

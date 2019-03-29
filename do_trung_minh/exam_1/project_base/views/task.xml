@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="action_tasks_tree_view">
+            <field name="name">iuh.tasks</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">iuh.tasks</field>
+            <!-- <field name="domain">[('field_name','condition',criteria)]</field>-->
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <!--<field name="view_id" ref="tasks_tree_view"/>-->
+        </record>
+        <record model="ir.ui.view" id="tasks_tree_view">
+            <field name="name">task.tree</field>
+            <field name="model">iuh.tasks</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="task">
+                    <field name="name"/>
+                    <field name="start_date"/>
+                    <field name="due_date"/>
+                    <field name="user_id"/>
+                    <field name="project_id"></field>
+                </tree>
+            </field>
+        </record>
+        <record id="task_form_view" model="ir.ui.view">
+            <field name="name">task.form</field>
+            <field name="model">iuh.tasks</field>
+            <field name="priority" eval="8"/>
+            <field name="arch" type="xml">
+                <form string="OpenERP">
+                    <header>
+                        <!--<button name="action_button" string="Button Name" type="object"-->
+                                <!--class="oe_highlight"/>-->
+                    </header>
+                    <sheet>
+                        <group colspan="4" col="4">
+                            <field name="name"/>
+                            <field name="start_date"/>
+                            <field name="due_date"/>
+                            <field name="user_id"/>
+                            <field name="project_id"></field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="one2many_kanban">
+            <field name="name">Kanban</field>
+            <field name="model">iuh.tasks</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div
+                                    t-attf-class=" oe_kanban_card oe_kanban_global_click">
+                                <div class="oe_dropdown_toggle oe_dropdown_kanban">
+                                    <span class="oe_e"></span>
+                                    <!--<ul class="oe_dropdown_menu">-->
+                                    <!--<t t-if="widget.view.is_action_enabled('edit')">-->
+                                    <!--<li>-->
+                                    <!--<a type="edit">Edit...</a>-->
+                                    <!--</li>-->
+                                    <!--</t>-->
+                                    <!--<t t-if="widget.view.is_action_enabled('delete')">-->
+                                    <!--<li>-->
+                                    <!--<a type="delete">Delete</a>-->
+                                    <!--</li>-->
+                                    <!--</t>-->
+                                    <!--<li>-->
+                                    <!--<ul class="oe_kanban_colorpicker" data-field="color"/>-->
+                                    <!--</li>-->
+                                    <!--</ul>-->
+                                </div>
+                                <div class="oe_kanban_content">
+                                    <div>
+                                        <li>
+                                            Tên Dự án:
+                                            <field name="name"/>
+                                        </li>
+                                        <li>
+                                            Ngày Bắt đầu:
+                                            <field name="start_date"/>
+                                        </li>
+                                        <li>
+                                            Ngày kết thúc:
+                                            <field name="due_date"/>
+                                        </li>
+
+                                    </div>
+                                    <div>
+                                    </div>
+                                    <div class="oe_clear"></div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+    </data>
+</odoo>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="demo_task1" model="iuh.tasks">
+            <field name="name">TASK Dự án 001</field>
+            <field name="start_date">3/3/2019</field>
+            <field name="due_date">4/4/2019</field>
+            <field name="user_id">1</field>
+            <field name="project_id" ref="project_base.demo_project1"/>
+        </record>
+        <record id="demo_task2" model="iuh.tasks">
+            <field name="name">TASK Dự án 002</field>
+            <field name="start_date">3/1/2019</field>
+            <field name="due_date">4/4/2019</field>
+            <field name="user_id">1</field>
+             <field name="project_id" ref="project_base.demo_project1"/>
+        </record>
+        <record id="demo_task3" model="iuh.tasks">
+            <field name="name">TASK Dự án 003</field>
+            <field name="start_date">3/8/2019</field>
+            <field name="due_date">8/4/2019</field>
+            <field name="user_id">1</field>
+            <field name="project_id" ref="project_base.demo_project1"/>
+        </record>
+        <record id="demo_task4" model="iuh.tasks">
+            <field name="name">TASK Dự án 004</field>
+            <field name="start_date">3/3/2019</field>
+            <field name="due_date">4/4/2019</field>
+            <field name="user_id">1</field>
+             <field name="project_id" ref="project_base.demo_project1"/>
+        </record>
+        <record id="demo_task5" model="iuh.tasks">
+            <field name="name">TASK Dự án 005</field>
+            <field name="start_date">3/3/2019</field>
+            <field name="due_date">1/4/2020</field>
+            <field name="manager_user_id">1</field>
+             <field name="project_id" ref="project_base.demo_project1"/>
+        </record>
+    </data>
+</odoo>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Add Kanban view mode to the menu Action: -->
+        <act_window id="project_base.action_tasks_tree_view" name="To-Do Tasks"
+                    res_model="iuh.tasks" view_mode="tree,form,kanban"/>
+        <!-- Add Kanban view -->
+        <record id="tmy_extends_form" model="ir.ui.view">
+            <field name="name">Danh sách Task</field>
+            <field name="model">iuh.tasks</field>
+            <field name="inherit_id" ref="project_base.task_form_view"/>
+            <field name="arch" type="xml">
+                <sheet>
+                            <div name="buttons" class="oe_right oe_button_box">
+                                <button class="oe_stat_button"
+                                        string="Tags"
+                                        type="action" icon="fa-tasks"
+                                        name=""
+                                        help="All to-dos for this user">
+                                    <!--<field string="Danh sách" name="user_todo_count"-->
+                                           <!--widget="statinfo"/>-->
+                                </button>
+                            </div>
+                 </sheet>
+
+                <field name="name" position="after">
+                    <field name="status"/>
+                </field>
+                <field name="name" position="after">
+                    <field name="working_status"/>
+                </field>
+                <field name="name" position="after">
+                    <field name="tags_id" widget="many2many_tags" options="{'no_create': True}"/>
+                </field>
+                <field name="name" position="after">
+                    <field name="priority" widget="priority"/>
+                </field>
+
+            </field>
+        </record>
+        <record model="ir.ui.view" id="taskin_tree_view">
+            <field name="name">Danh sách task</field>
+            <field name="model">iuh.tasks</field>
+            <field name="type">tree</field>
+            <field name="inherit_id" ref="project_base.tasks_tree_view"/>
+            <field name="arch" type="xml">
+
+                <field name="name" position="after">
+                    <field name="status"/>
+                </field>
+
+                <field name="start_date" position="after">
+                    <field name="working_status"/>
+                </field>
+
+            </field>
+        </record>
+
+        <record id="kanbanviews1" model="ir.ui.view">
+            <field name="name">Kanban Task</field>
+            <field name="model">iuh.tasks</field>
+            <!--<field name="type">kanban</field>-->
+            <!--<field name="inherit_id" ref="project_base.one2many_kanban"/>-->
+            <field name="arch" type="xml">
+                <kanban default_order="priority desc">
+                    <field name="name"/>
+                    <field name="user_id"/>
+                    <field name="start_date"/>
+                    <field name="tags_id"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <!-- Set the Kanban Card color: -->
+                            <div t-attf-class="kanban_color_red oe_kanban_global_click">
+
+                                <div class="o_dropdown_kanban dropdown">
+
+                                    <a class="dropdown-toggle btn" data-toggle="dropdown" href="#">
+
+                                        <span class="fa fa-bars fa-lg"/>
+
+                                    </a>
+
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                        <t t-if="widget.editable">
+                                            <li>
+                                                <a type="edit">Edit</a>
+                                            </li>
+                                        </t>
+                                        <t t-if="widget.deletable">
+                                            <li>
+                                                <a type="delete">Delete</a>
+                                            </li>
+                                        </t>
+                                    </ul>
+
+                                </div>
+                                <div class="oe_kanban_content">
+                                    <div class="oe_kanban_footer">
+                                        <div>
+                                            <!-- Left hand footer... -->
+                                            <field name="priority" widget="priority"/>
+                                        </div>
+                                        <div>
+                                            <!-- Right hand footer... -->
+
+                                            <img t-att-src="kanban_image('res.users', 'image_small', record.user_id.raw_value)"
+                                                 t-att-title="record.user_id.raw_value" width="24" height="24"
+                                                 class="oe_kanban_avatar pull-right"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Content elements and fields go here... -->
+
+                                <div>
+                                    <strong>
+                                        <a type="open">
+                                            <field name="name"/>
+                                        </a>
+                                    </strong>
+                                </div>
+                                <div>
+                                    <field name="tags_id"/>
+                                </div>
+                                <div class="oe_clear"/>
+                            </div> <!-- kanban color -->
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+    </data>
+</odoo>

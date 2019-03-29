@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <menuitem id="wizard_menu" name="Wizard"  action="action_open_wizard" sequence="20"/>
+    </data>
+</odoo>

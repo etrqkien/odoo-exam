@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="demo_project1" model="iuh.project">
+            <field name="name">Dự án 001</field>
+            <field name="start_date">3/3/2019</field>
+            <field name="due_date">4/4/2019</field>
+            <field name="manager_user_id">1</field>
+           <field name="task_ids" eval=""/>
+        </record>
+        <record id="demo_project2" model="iuh.project">
+            <field name="name">Dự án 002</field>
+            <field name="start_date">3/1/2019</field>
+            <field name="due_date">4/4/2019</field>
+            <field name="manager_user_id">1</field>
+            <field name="task_ids" eval=""/>
+        </record>
+        <record id="demo_project3" model="iuh.project">
+            <field name="name">Dự án 003</field>
+            <field name="start_date">3/8/2019</field>
+            <field name="due_date">8/4/2019</field>
+            <field name="manager_user_id">1</field>
+            <field name="task_ids" eval=""/>
+        </record>
+        <record id="demo_project4" model="iuh.project">
+            <field name="name">Dự án 004dd</field>
+            <field name="start_date">3/3/2019</field>
+            <field name="due_date">4/4/2019</field>
+            <field name="manager_user_id">1</field>
+            <field name="task_ids" eval=""/>
+        </record>
+        <record id="demo_project5" model="iuh.project">
+            <field name="name">Dự án 005</field>
+            <field name="start_date">3/3/2019</field>
+            <field name="due_date">1/4/2020</field>
+            <field name="manager_user_id">1</field>
+            <field name="task_ids" eval=""/>
+        </record>
+    </data>
+</odoo>
