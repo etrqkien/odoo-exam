@@ -14,7 +14,7 @@
     'depends': ['base'],
     'data': ['view/project_extern_view.xml',
              'view/task_extern_view.xml'],
-    'demo': [],
+    'demo': ['demo/demo.xml'],
     'qweb': [],
     # 'js': ['static/src/js/first_module.js',],
     # 'css': ['static/src/css/web_example.css',],

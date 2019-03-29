@@ -15,7 +15,7 @@
     'data': ['view/project_view.xml',
              'view/task_view.xml',
              'view/menu.xml'],
-    'demo': [],
+    'demo': ['demo/demo.xml'],
     'qweb': [],
     # 'js': ['static/src/js/first_module.js',],
     # 'css': ['static/src/css/web_example.css',],
