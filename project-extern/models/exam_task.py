@@ -1,9 +1,15 @@
 from odoo import models, fields,api
 
-
-
 class task_extern(models.Model):
     _inherit = "exam.task"
+    _order = "priority desc"
+
+    tag_ids = fields.Many2many(comodel_name="exam.tag", string="tag_id", )
+    priority = fields.Selection([('1', 'Low'),
+                                 ('2', 'Normal'),
+                                 ('3', 'High'),
+                                 ('4', 'Very High')],
+                                'Priority', )
 
     status = fields.Selection(string="trang thai", selection=[('init', 'init'),
                                                     ('inprogress', 'inprogress'),
