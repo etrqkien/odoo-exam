@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="wizard_tag_view_form" model="ir.ui.view">
+            <field name="name">wizard form</field>
+            <field name="model">wizard.tag</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="Task_id"/>
+                            <field name="Tags"/>
+                            <field name="Update_option"/>
+                            <footer>
+                                <button name="tag_update" type="object" string="Update"/>
+                                <button string="Cancel" special="cancel"/>
+                            </footer>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="action_wizard" model="ir.actions.act_window">
+            <field name="name">wiz tag</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">wizard.tag</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="wizard_tag_view_form"/>
+            <field name="target">new</field>
+        </record>
+        <!-- This Menu Item must have a parent and an action -->
+        <menuitem id="wizard_view_menu" name="menu wiz" parent="project-base.test_project_menu" action="action_wizard" sequence="20"/>
+
+    </data>
+</odoo>

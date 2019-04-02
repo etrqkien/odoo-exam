@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+       <record id="tag_view" model="ir.actions.act_window">
+           <field name="name">view tag</field>
+           <field name="type">ir.actions.act_window</field>
+           <field name="res_model">exam.tag</field>
+           <field name="view_mode">tree,form</field>
+       </record>
+        <record id="tag_view_tree" model="ir.ui.view">
+            <field name="name">tag tree view</field>
+            <field name="model">exam.tag</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="tag_menu" name="tag menu" parent="project-base.test_project_menu" action="tag_view" sequence="15"/>
+
+    </data>
+</odoo>

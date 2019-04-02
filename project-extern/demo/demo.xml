@@ -1,87 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <data noupdate="0">
-        <record id="user_1" model="res.users">
-            <field name="name">Nguyễn Văn A</field>
-            <field name="login">user1@gmail.com</field>
+    <data>
+        <!--Respartner Table-->
+        <record id="res_partner_01" model="res.partner">
+            <field name="name">nguyen huy hoang</field>
+            <field name="company_id">1</field>
+        </record>
+        <record id="res_partner_02" model="res.partner">
+            <field name="name">Nguyen huy</field>
+            <field name="company_id">1</field>
+        </record>
+        <record id="res_partner_03" model="res.partner">
+            <field name="name">nguyen </field>
+            <field name="company_id">1</field>
         </record>
 
-        <record id="user_2" model="res.users">
-            <field name="name">Nguyễn Văn B</field>
-            <field name="login">user2@gmail.com</field>
+        <!--Res User Table-->
+        <record id="res_user_01" model="res.users">
+            <field name="login">hoang1</field>
+            <field name="company_id">1</field>
+            <field name="partner_id" eval="ref('res_partner_01')"/>
+        </record>
+        <record id="res_user_02" model="res.users">
+            <field name="login">hoang2</field>
+            <field name="company_id">1</field>
+            <field name="partner_id" eval="ref('res_partner_02')"/>
+        </record>
+        <record id="res_user_03" model="res.users">
+            <field name="login">hoang3</field>
+            <field name="company_id">1</field>
+            <field name="partner_id" eval="ref('res_partner_03')"/>
         </record>
 
-        <record id="user_3" model="res.users">
-            <field name="name">Nguyễn Văn C</field>
-            <field name="login">user3@gmail.com</field>
+        <!--Exam project Table-->
+        <record id="exam_pj_01" model="exam.project">
+            <field name="name">proj 01</field>
+            <field name="manager_user_id" eval="ref('res_user_01')"/>
+            <field name="start_date">2019-03-01</field>
+            <field name="due_date">2019-03-30</field>
+        </record>
+        <record id="exam_pj_02" model="exam.project">
+            <field name="name">proj 02</field>
+            <field name="manager_user_id" eval="ref('res_user_02')"/>
+            <field name="start_date">2019-03-01</field>
+            <field name="due_date">2019-03-30</field>
+        </record>
+        <record id="exam_pj_03" model="exam.project">
+            <field name="name">proj 03</field>
+            <field name="manager_user_id" eval="ref('res_user_03')"/>
+            <field name="start_date">2019-03-01</field>
+            <field name="due_date">2019-03-30</field>
         </record>
 
-        <record id="project_1" model="exam.project">
-            <field name="name">Project 1</field>
-            <field name="manager_user_id" eval="[(4, ref('user_1'))]"></field>
-            <field name="start_date">2018-12-01</field>
-            <field name="due_date">2018-12-10</field>
+        <!--Exam task table-->
+        <record id="exam_task_01" model="exam.task">
+            <field name="name">task 01</field>
+            <field name="user_id" eval="ref('res_user_01')"/>
+            <field name="start_date">2019-03-02</field>
+            <field name="due_date">2019-03-29</field>
+            <field name="project_id" eval="ref('exam_pj_01')"/>
+        </record>
+        <record id="exam_task_02" model="exam.task">
+            <field name="name">task 02</field>
+            <field name="user_id" eval="ref('res_user_02')"/>
+            <field name="start_date">2019-03-02</field>
+            <field name="due_date">2019-03-29</field>
+            <field name="project_id" eval="ref('exam_pj_02')"/>
+        </record>
+        <record id="exam_task_03" model="exam.task">
+            <field name="name">task 03</field>
+            <field name="user_id" eval="ref('res_user_03')"/>
+            <field name="start_date">2019-03-02</field>
+            <field name="due_date">2019-03-29</field>
+            <field name="project_id" eval="ref('exam_pj_03')"/>
         </record>
 
-        <record id="project_2" model="exam.project">
-            <field name="name">Project 2</field>
-            <field name="manager_user_id" eval="[(4, ref('user_2'))]"></field>
-            <field name="start_date">2018-12-11</field>
-            <field name="due_date">2018-12-20</field>
-        </record>
-
-        <record id="project_3" model="exam.project">
-            <field name="name">Project 1</field>
-            <field name="manager_user_id" eval="[(4, ref('user_1'))]"></field>
-            <field name="start_date">2018-12-21</field>
-            <field name="due_date">2018-12-30</field>
-        </record>
-
-        <record id="task_1" model="exam.task">
-            <field name="name">Task 1</field>
-            <field name="user_id" eval="[(4, ref('user_1'))]"></field>
-            <field name="start_date">2018-12-01</field>
-            <field name="due_date">2018-12-05</field>
-            <field name ="project_id" eval="[(4, ref('project_1'))]"></field>
-        </record>
-
-        <record id="task_2" model="exam.task">
-            <field name="name">Task 2</field>
-            <field name="user_id" eval="[(4, ref('user_2'))]"></field>
-            <field name="start_date">2018-12-06</field>
-            <field name="due_date">2018-12-10</field>
-            <field name ="project_id" eval="[(4, ref('project_1'))]"></field>
-        </record>
-
-        <record id="task_3" model="exam.task">
-            <field name="name">Task 3</field>
-            <field name="user_id" eval="[(4, ref('user_1'))]"></field>
-            <field name="start_date">2018-12-11</field>
-            <field name="due_date">2018-12-15</field>
-            <field name ="project_id" eval="[(4, ref('project_2'))]"></field>
-        </record>
-
-        <record id="task_4" model="exam.task">
-            <field name="name">Task 4</field>
-            <field name="user_id" eval="[(4, ref('user_3'))]"></field>
-            <field name="start_date">2018-12-16</field>
-            <field name="due_date">2018-12-20</field>
-            <field name ="project_id" eval="[(4, ref('project_2'))]"></field>
-        </record>
-
-        <record id="task_5" model="exam.task">
-            <field name="name">Task 5</field>
-            <field name="user_id" eval="[(4, ref('user_2'))]"></field>
-            <field name="start_date">2018-12-21</field>
-            <field name="due_date">2018-12-25</field>
-            <field name ="project_id" eval="[(4, ref('project_3'))]"></field>
-        </record>
-
-        <record id="task_6" model="exam.task">
-            <field name="name">Task 6</field>
-            <field name="user_id" eval="[(4, ref('user_3'))]"></field>
-            <field name="start_date">2018-12-26</field>
-            <field name="due_date">2018-12-30</field>
-            <field name ="project_id" eval="[(4, ref('project_2'))]"></field>
-        </record>
     </data>
 </odoo>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+
+        <!-- Inherit Form View to Modify it -->
+        <record id="project_extern_inherit_view" model="ir.ui.view">
+            <field name="name">trang thai</field>
+            <field name="model">exam.project</field>
+            <field name="inherit_id" ref="project-base.project_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='due_date']" position="after">
+                    <!-- Add your fields or attributes here -->
+                    <field name="status"/>
+                    <field name="working_status"/>
+
+                </xpath>
+
+            </field>
+        </record>
+
+        <record id="treein" model="ir.ui.view">
+            <field name="name">treein</field>
+            <field name="model">exam.project</field>
+            <field name="inherit_id" ref="project-base.project_view_tree"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='name']" position="after">
+                    <!-- Add new fields here -->
+                    <field name="status"/>
+                    <field name="working_status"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="project_exam_filter" model="ir.ui.view">
+            <field name="name">Filter</field>
+            <field name="model">exam.project</field>
+            <field name="arch" type="xml">
+                <search>
+                    <filter string="init" name="status_init" domain="[('status','=','init')]"/>
+                </search>
+            </field>
+        </record>
+        <record model="ir.actions.act_window"
+                id="project-base.project_view">
+            <field name="context">
+                {'search_default_status_init': True}
+            </field>
+        </record>
+    </data>
+</odoo>
