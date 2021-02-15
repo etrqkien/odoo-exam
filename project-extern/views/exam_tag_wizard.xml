@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_wizard_tag" model="ir.ui.view">
+        <field name="name">Exam Wizard</field>
+        <field name="model">wizard.tag</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="w_task" />
+                    <field name="w_tag" />
+                    <field name="w_u_option" />
+                </group>
+
+                <footer>
+                    <button type="object" name="wizard_update" string="Update" class="oe_hightlight" />
+                    <button type="object" special="cancel" string="Cancel" class="oe_hightlight" />
+
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <act_window id="action_wizard_tag"
+                name="Exam Wizard Tags"
+                res_model="wizard.tag"
+                view_mode="form"
+                target="new" />
+
+
+    <menuitem id="menu_wizard_tag"
+              name="Wizard Tags"
+              parent="project-base.menu_project_base"
+              action="action_wizard_tag" />
+
+</odoo>

@@ -1,4 +1,2 @@
-# -*- coding: utf-8 -*-
-
-from . import exam_project
-from . import exam_task
+# -*- coding: utf8 -*-
+from . import exam_project_model, exam_task

@@ -10,9 +10,9 @@ Tạo file odoo-exam.conf chứa các config tối thiểu để có thể chạ
 3. Muốn chạy odoo ở cổng 69 thì phải làm thế nào. Hãy viết cả 2 cách: chỉ định cổng ở dòng lệnh với odoo-bin và chỉ định cổng trong file config.  
 
 Trả lời: 
-1. python -c D:/Github/odoo-exam/odoo-exam.conf
-2. python -c D:/Github/odoo-exam/odoo-exam.conf -d test-project -u project-base
-3. python -c D:/Github/odoo-exam/odoo-exam.conf -d test-project -u project-base --xmlrpc-port 69
+1. sudo ./odoo-bin -c ../odoo-exam.conf 
+2. sudo ./odoo-bin -c ../odoo-exam.conf -d test-project -u huydd-test-project
+3. sudo ./odoo-bin -c ../odoo-exam.conf  --xmlrpc-port=69
 
 
 
@@ -39,7 +39,7 @@ Chú ý: user sử dụng bảng res_users của hệ thống. Hãy tự depend 
 
 Trả lời:  
 ( ... lệnh tạo module bằng scaffold ... )  
-python C:/Code/odoo/odoo-bin scaffold project-base D:/Github/odoo-exam
+./odoo-bin scaffold “tên module” “đường dẫn”
 
 ### Câu 3:  
 Tạo module project-extern chứa các mở rộng:  

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!--Action for Exam Project-->
+    <act_window id="action_exam_project"
+                name="Action Exam Project"
+                res_model="exam.project"
+                view_mode="kanban,tree,form"  />
+
+    <!--Action for Exam Task-->
+    <act_window id="action_exam_task"
+                name="Action Exam Task"
+                res_model="exam.task"
+                view_mode="tree,form" />
+
+    <!--Parent menu-->
+    <menuitem id="menu_project_base" name="Project" />
+
+    <!--Exam Project Menu-->
+    <menuitem id="menu_exam_project"
+              name="Exam Project"
+              parent="menu_project_base"
+              action="action_exam_project" />
+
+    <!--Exam Task Menu-->
+    <menuitem id="menu_exam_task"
+              name="Exam Task"
+              parent="menu_project_base"
+              action="action_exam_task" />
+
+</odoo>
